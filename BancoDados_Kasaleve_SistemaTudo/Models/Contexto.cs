@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using BancoDados_Kasaleve_SistemaTudo.Models;
 
 namespace BancoDados_Kasaleve_SistemaTudo.Models
 {
@@ -9,6 +10,8 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
 
         }
 
-        public DbSet<TipoProduto> Clientes { get; set; }
+        public DbSet<TipoProduto> TipoProduto { get; set; }
+        public DbSet<Produto> Produto { get; set; } = default!;
+        public DbSet<Praice> Praice { get; set; } = default!;
     }
 }

@@ -18,6 +18,14 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
         [Display(Name = "produtoValor")]
         public decimal produtoValor { get; set; }
 
-        
+        [Column("produtoFoto")]
+        [Display(Name = "produtoFoto")]
+        public string produtoFoto { get; set; } = string.Empty;
+
+        [ForeignKey("TipoProdutoId")]
+        [Display(Name = "TipoProduto")]
+        public int TipoProdutoId { get; set; }
+
+        public TipoProduto? TipoProduto { get; set; }
     }
 }
