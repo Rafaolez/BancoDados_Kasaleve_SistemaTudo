@@ -14,16 +14,11 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
         [Display(Name = "praiceValor")]
         public decimal praiceValor { get; set; }
 
-        [ForeignKey("Produto")]
-        [Display(Name = "Produto")]
-        public int ProdutoId { get; set; }
-
-        public Produto? Produto { get; set; } 
-
         [ForeignKey("TipoProdutoId")]
         [Display(Name = "TipoProduto")]
         public int TipoProdutoId { get; set; }
 
         public TipoProduto? TipoProduto { get; set; }
+
     }
 }
