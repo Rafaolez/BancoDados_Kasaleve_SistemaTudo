@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Orcamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nonce)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Praice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orcamnetoCorAluminio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orcamentoCorCorda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orcamentoCorTecido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nonce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.clienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Praice.praiceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendedora.vendedoraId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orcamnetoCorAluminio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orcamentoCorCorda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orcamentoCorTecido)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.orcamentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.orcamentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.orcamentoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

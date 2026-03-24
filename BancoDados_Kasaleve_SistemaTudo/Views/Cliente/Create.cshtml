@@ -1,0 +1,68 @@
+﻿@model BancoDados_Kasaleve_SistemaTudo.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="clienteNome" class="control-label"></label>
+                <input asp-for="clienteNome" class="form-control" />
+                <span asp-validation-for="clienteNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteCPF" class="control-label"></label>
+                <input asp-for="clienteCPF" class="form-control" />
+                <span asp-validation-for="clienteCPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteCEP" class="control-label"></label>
+                <input asp-for="clienteCEP" class="form-control" />
+                <span asp-validation-for="clienteCEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteEnd" class="control-label"></label>
+                <input asp-for="clienteEnd" class="form-control" />
+                <span asp-validation-for="clienteEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteCyti" class="control-label"></label>
+                <input asp-for="clienteCyti" class="form-control" />
+                <span asp-validation-for="clienteCyti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteTel" class="control-label"></label>
+                <input asp-for="clienteTel" class="form-control" />
+                <span asp-validation-for="clienteTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteEmail" class="control-label"></label>
+                <input asp-for="clienteEmail" class="form-control" />
+                <span asp-validation-for="clienteEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteRG" class="control-label"></label>
+                <input asp-for="clienteRG" class="form-control" />
+                <span asp-validation-for="clienteRG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

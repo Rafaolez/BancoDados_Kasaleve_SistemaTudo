@@ -1,0 +1,66 @@
+﻿@model BancoDados_Kasaleve_SistemaTudo.Models.Cliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteCPF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteCPF)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteCEP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteCEP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteEnd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteEnd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteCyti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteCyti)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteTel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteTel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clienteRG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clienteRG)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.clienteId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

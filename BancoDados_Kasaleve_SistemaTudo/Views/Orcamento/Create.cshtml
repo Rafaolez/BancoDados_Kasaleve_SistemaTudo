@@ -1,0 +1,65 @@
+﻿@model BancoDados_Kasaleve_SistemaTudo.Models.Orcamento
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Orcamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="orcamentoId" class="control-label"></label>
+                <input asp-for="orcamentoId" class="form-control" />
+                <span asp-validation-for="orcamentoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nonce" class="control-label"></label>
+                <input asp-for="Nonce" class="form-control" />
+                <span asp-validation-for="Nonce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteId" class="control-label"></label>
+                <select asp-for="clienteId" class ="form-control" asp-items="ViewBag.clienteId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="praiceId" class="control-label"></label>
+                <select asp-for="praiceId" class ="form-control" asp-items="ViewBag.praiceId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="vendedoraId" class="control-label"></label>
+                <select asp-for="vendedoraId" class ="form-control" asp-items="ViewBag.vendedoraId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="orcamnetoCorAluminio" class="control-label"></label>
+                <input asp-for="orcamnetoCorAluminio" class="form-control" />
+                <span asp-validation-for="orcamnetoCorAluminio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="orcamentoCorCorda" class="control-label"></label>
+                <input asp-for="orcamentoCorCorda" class="form-control" />
+                <span asp-validation-for="orcamentoCorCorda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="orcamentoCorTecido" class="control-label"></label>
+                <input asp-for="orcamentoCorTecido" class="form-control" />
+                <span asp-validation-for="orcamentoCorTecido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
