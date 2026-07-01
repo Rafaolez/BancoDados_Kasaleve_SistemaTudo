@@ -2,6 +2,7 @@ using BancoDados_Kasaleve_SistemaTudo.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Contexto") ?? throw new InvalidOperationException("Connection string 'Contexto' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

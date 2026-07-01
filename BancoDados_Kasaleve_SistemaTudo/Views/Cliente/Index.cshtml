@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Cliente>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Cliente>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,28 +13,40 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.clienteNome)
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteCPF)
+                @Html.DisplayNameFor(model => model.Sobrenome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteCEP)
+                @Html.DisplayNameFor(model => model.CpfCnpj)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteEnd)
+                @Html.DisplayNameFor(model => model.Rg)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteCyti)
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteTel)
+                @Html.DisplayNameFor(model => model.Telefone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteEmail)
+                @Html.DisplayNameFor(model => model.Cep)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteRG)
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orcamentos)
             </th>
             <th></th>
         </tr>
@@ -43,33 +55,45 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteNome)
+                @Html.DisplayFor(model => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteCPF)
+                @Html.DisplayFor(model => item.Sobrenome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteCEP)
+                @Html.DisplayFor(model => item.CpfCnpj)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteEnd)
+                @Html.DisplayFor(model => item.Rg)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteCyti)
+                @Html.DisplayFor(model => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteTel)
+                @Html.DisplayFor(model => item.Telefone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteEmail)
+                @Html.DisplayFor(model => item.Cep)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.clienteRG)
+                @Html.DisplayFor(model => item.Endereco)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.clienteId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.clienteId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.clienteId">Delete</a>
+                @Html.DisplayFor(model => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Orcamentos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClienteId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClienteId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClienteId">Delete</a>
             </td>
         </tr>
 }

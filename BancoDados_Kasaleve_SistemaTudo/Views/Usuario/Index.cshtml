@@ -1,0 +1,89 @@
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SenhaHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendedoraId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.SenhaHash)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CargoId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.VendedoraId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Vendedora)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tarefas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UsuarioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UsuarioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UsuarioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

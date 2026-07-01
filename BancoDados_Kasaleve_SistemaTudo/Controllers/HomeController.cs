@@ -1,4 +1,4 @@
-using BancoDados_Kasaleve_SistemaTudo.Models;
+﻿using BancoDados_Kasaleve_SistemaTudo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

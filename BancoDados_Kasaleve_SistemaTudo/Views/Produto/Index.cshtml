@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Produto>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Produto>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.produtoNome)
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.produtoValor)
+                @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.produtoFoto)
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProdutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrcamentoItens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecosProdutos)
             </th>
             <th></th>
         </tr>
@@ -28,18 +49,39 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.produtoNome)
+                @Html.DisplayFor(model => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.produtoValor)
+                @Html.DisplayFor(model => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.produtoFoto)
+                @Html.DisplayFor(model => item.Valor)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.produtoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.produtoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.produtoId">Delete</a>
+                @Html.DisplayFor(model => item.TipoProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.TipoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.OrcamentoItens)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PrecosProdutos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdutoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdutoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdutoId">Delete</a>
             </td>
         </tr>
 }

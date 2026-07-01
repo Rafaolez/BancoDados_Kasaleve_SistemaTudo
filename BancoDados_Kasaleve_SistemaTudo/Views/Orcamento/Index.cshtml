@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Orcamento>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Orcamento>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,25 +13,43 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nonce)
+                @Html.DisplayNameFor(model => model.DataOrcamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Praice)
+                @Html.DisplayNameFor(model => model.VendedoraId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Vendedora)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.orcamnetoCorAluminio)
+                @Html.DisplayNameFor(model => model.CorAluminio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.orcamentoCorCorda)
+                @Html.DisplayNameFor(model => model.CorCorda)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.orcamentoCorTecido)
+                @Html.DisplayNameFor(model => model.CorTecido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorFrete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermosCondicoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrcamentoItens)
             </th>
             <th></th>
         </tr>
@@ -40,30 +58,48 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nonce)
+                @Html.DisplayFor(model => item.DataOrcamento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cliente.clienteId)
+                @Html.DisplayFor(model => item.ClienteId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Praice.praiceId)
+                @Html.DisplayFor(model => item.Cliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vendedora.vendedoraId)
+                @Html.DisplayFor(model => item.VendedoraId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.orcamnetoCorAluminio)
+                @Html.DisplayFor(model => item.Vendedora)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.orcamentoCorCorda)
+                @Html.DisplayFor(model => item.CorAluminio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.orcamentoCorTecido)
+                @Html.DisplayFor(model => item.CorCorda)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.orcamentoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.orcamentoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.orcamentoId">Delete</a>
+                @Html.DisplayFor(model => item.CorTecido)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ValorFrete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Observacoes)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.TermosCondicoes)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.OrcamentoItens)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrcamentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrcamentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrcamentoId">Delete</a>
             </td>
         </tr>
 }

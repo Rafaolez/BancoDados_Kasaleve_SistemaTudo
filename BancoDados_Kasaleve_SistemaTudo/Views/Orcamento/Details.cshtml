@@ -1,4 +1,4 @@
-﻿@model BancoDados_Kasaleve_SistemaTudo.Models.Orcamento
+@model BancoDados_Kasaleve_SistemaTudo.Models.Orcamento
 
 @{
     ViewData["Title"] = "Details";
@@ -11,50 +11,98 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nonce)
+            @Html.DisplayNameFor(model => model.DataOrcamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nonce)
+            @Html.DisplayFor(model => model.DataOrcamento)
         </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClienteId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClienteId)
+        </dd>
+    </dl>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Cliente)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cliente.clienteId)
+            @Html.DisplayFor(model => model.Cliente)
         </dd>
+    </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Praice)
+            @Html.DisplayNameFor(model => model.VendedoraId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Praice.praiceId)
+            @Html.DisplayFor(model => model.VendedoraId)
         </dd>
+    </dl>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Vendedora)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Vendedora.vendedoraId)
+            @Html.DisplayFor(model => model.Vendedora)
         </dd>
+    </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.orcamnetoCorAluminio)
+            @Html.DisplayNameFor(model => model.CorAluminio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.orcamnetoCorAluminio)
+            @Html.DisplayFor(model => model.CorAluminio)
         </dd>
+    </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.orcamentoCorCorda)
+            @Html.DisplayNameFor(model => model.CorCorda)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.orcamentoCorCorda)
+            @Html.DisplayFor(model => model.CorCorda)
         </dd>
+    </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.orcamentoCorTecido)
+            @Html.DisplayNameFor(model => model.CorTecido)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.orcamentoCorTecido)
+            @Html.DisplayFor(model => model.CorTecido)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorFrete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValorFrete)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TermosCondicoes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TermosCondicoes)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrcamentoItens)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrcamentoItens)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.orcamentoId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.OrcamentoId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

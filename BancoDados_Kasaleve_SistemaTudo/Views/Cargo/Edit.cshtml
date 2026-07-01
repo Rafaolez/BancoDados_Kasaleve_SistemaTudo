@@ -1,4 +1,4 @@
-﻿@model BancoDados_Kasaleve_SistemaTudo.Models.Cargo
+@model BancoDados_Kasaleve_SistemaTudo.Models.Cargo
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,11 +12,16 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="cargoId" />
+            <input type="hidden" asp-for="CargoId" />
             <div class="form-group">
-                <label asp-for="cargoNome" class="control-label"></label>
-                <input asp-for="cargoNome" class="form-control" />
-                <span asp-validation-for="cargoNome" class="text-danger"></span>
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuarios" class="control-label"></label>
+                <input asp-for="Usuarios" class="form-control" />
+                <span asp-validation-for="Usuarios" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

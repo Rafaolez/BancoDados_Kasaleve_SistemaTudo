@@ -1,0 +1,59 @@
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.PrecoProduto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVigenciaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVigenciaFim)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.ProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Produto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DataVigenciaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DataVigenciaFim)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PrecoProdutoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PrecoProdutoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PrecoProdutoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

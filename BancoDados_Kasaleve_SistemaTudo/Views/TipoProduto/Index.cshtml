@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.TipoProduto>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.TipoProduto>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.tipoProdutoNome)
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produtos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecosProdutos)
             </th>
             <th></th>
         </tr>
@@ -22,12 +28,18 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.tipoProdutoNome)
+                @Html.DisplayFor(model => item.Nome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.tipoProdutoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.tipoProdutoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.tipoProdutoId">Delete</a>
+                @Html.DisplayFor(model => item.Produtos)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PrecosProdutos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TipoProdutoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TipoProdutoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TipoProdutoId">Delete</a>
             </td>
         </tr>
 }

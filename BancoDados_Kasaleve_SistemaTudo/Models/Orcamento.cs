@@ -6,43 +6,64 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
     [Table("Orcamento")]
     public class Orcamento
     {
+        [Key]
         [Column("orcamentoId")]
-        [Display(Name = "orcamentoId")]
-        public required string orcamentoId { get; set; }
+        [Display(Name = "ID do Orçamento")]
+        public int OrcamentoId { get; set; }
 
         [Column("dataOrcamento")]
         [Display(Name = "Data do Orçamento")]
-        public int? Nonce { get; set; } = default(int?);
+        public DateTime DataOrcamento { get; set; } = DateTime.Now;
 
-        [ForeignKey("clienteId")]
-        [Display(Name = "cliente")]
-        public int clienteId { get; set; }
+        [Column("clienteId")]
+        [Display(Name = "ID do Cliente")]
+        [Required(ErrorMessage = "O cliente é obrigatório.")]
+        public int ClienteId { get; set; }
 
+        [ForeignKey("ClienteId")]
         public Cliente? Cliente { get; set; }
 
-        [ForeignKey("praiceId")]
-        [Display(Name = "praice")]
-        public int praiceId { get; set; }
+        [Column("vendedoraId")]
+        [Display(Name = "ID da Vendedora")]
+        [Required(ErrorMessage = "A vendedora é obrigatória.")]
+        public int VendedoraId { get; set; }
 
-        public Praice? Praice { get; set; }
-
-        [ForeignKey("vendedoraId")]
-        [Display(Name = "vendedora")]
-        public int vendedoraId { get; set; }
-
+        [ForeignKey("VendedoraId")]
         public Vendedora? Vendedora { get; set; }
 
-        [Column("orcamnetoCorAluminio")]
+        [Column("corAluminio")]
         [Display(Name = "Cor do Alumínio")]
-        public string orcamnetoCorAluminio { get; set; } = string.Empty;
+        [StringLength(100, ErrorMessage = "A cor do alumínio não pode exceder 100 caracteres.")]
+        public string? CorAluminio { get; set; }
 
-        [Column("orcamentoCorCorda")]
+        [Column("corCorda")]
         [Display(Name = "Cor da Corda")]
-        public string orcamentoCorCorda { get; set; } = string.Empty;
+        [StringLength(100, ErrorMessage = "A cor da corda não pode exceder 100 caracteres.")]
+        public string? CorCorda { get; set; }
 
-        [Column("orcamentoCorTecido")]
+        [Column("corTecido")]
         [Display(Name = "Cor do Tecido")]
-        public string orcamentoCorTecido { get; set; } = string.Empty;
-        
+        [StringLength(100, ErrorMessage = "A cor do tecido não pode exceder 100 caracteres.")]
+        public string? CorTecido { get; set; }
+
+        [Column("valorFrete", TypeName = "decimal(10, 2)")]
+        [Display(Name = "Valor do Frete")]
+        public decimal ValorFrete { get; set; } = 0.00M;
+
+        [Column("observacoes")]
+        [Display(Name = "Observações")]
+        public string? Observacoes { get; set; }
+
+        [Column("termosCondicoes")]
+        [Display(Name = "Termos e Condições")]
+        public string? TermosCondicoes { get; set; }
+
+        [Column("status")]
+        [Display(Name = "Status do Orçamento")]
+        [StringLength(50, ErrorMessage = "O status não pode exceder 50 caracteres.")]
+        public string Status { get; set; } = "Pendente";
+
+        // Propriedade de navegação para Itens do Orçamento
+        public ICollection<OrcamentoItem>? OrcamentoItens { get; set; }
     }
 }

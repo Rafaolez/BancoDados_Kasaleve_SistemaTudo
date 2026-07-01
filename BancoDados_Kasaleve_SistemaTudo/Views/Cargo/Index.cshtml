@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Cargo>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Cargo>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.cargoNome)
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios)
             </th>
             <th></th>
         </tr>
@@ -22,12 +25,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cargoNome)
+                @Html.DisplayFor(model => item.Nome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.cargoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.cargoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.cargoId">Delete</a>
+                @Html.DisplayFor(model => item.Usuarios)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CargoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CargoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CargoId">Delete</a>
             </td>
         </tr>
 }

@@ -1,4 +1,4 @@
-﻿@model BancoDados_Kasaleve_SistemaTudo.Models.TipoProduto
+@model BancoDados_Kasaleve_SistemaTudo.Models.TipoProduto
 
 @{
     ViewData["Title"] = "Details";
@@ -11,14 +11,28 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tipoProdutoNome)
+            @Html.DisplayNameFor(model => model.Nome)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tipoProdutoNome)
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Produtos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produtos)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecosProdutos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecosProdutos)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.tipoProdutoId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.TipoProdutoId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
