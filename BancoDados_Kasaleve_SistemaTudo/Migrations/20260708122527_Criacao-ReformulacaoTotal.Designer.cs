@@ -4,6 +4,7 @@ using BancoDados_Kasaleve_SistemaTudo.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BancoDados_Kasaleve_SistemaTudo.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20260708122527_Criacao-ReformulacaoTotal")]
+    partial class CriacaoReformulacaoTotal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,7 +276,7 @@ namespace BancoDados_Kasaleve_SistemaTudo.Migrations
                         .HasColumnName("descricao");
 
                     b.Property<byte[]>("Foto")
-                        .HasColumnType("varbinary(max)")
+                        .HasColumnType("LONGBLOB")
                         .HasColumnName("foto");
 
                     b.Property<string>("Nome")

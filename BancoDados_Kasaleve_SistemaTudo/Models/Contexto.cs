@@ -28,7 +28,7 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
             // Configuração para a propriedade Foto em Produto para MySQL (LONGBLOB)
             modelBuilder.Entity<Produto>()
                 .Property(p => p.Foto)
-                .HasColumnType("LONGBLOB");
+                .HasColumnType("varbinary(max)");
 
             // Configuração para a propriedade SenhaHash em Usuario
             modelBuilder.Entity<Usuario>()

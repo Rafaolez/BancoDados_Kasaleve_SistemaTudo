@@ -33,7 +33,7 @@ namespace BancoDados_Kasaleve_SistemaTudo.Models
         [ForeignKey("TipoProdutoId")]
         public TipoProduto? TipoProduto { get; set; }
 
-        [Column("foto", TypeName = "LONGBLOB")]
+        [Column("foto", TypeName = "varbinary(max)")]
         [Display(Name = "Foto do Produto")]
         public byte[]? Foto { get; set; } // Armazenar imagem como byte array (BLOB)
 

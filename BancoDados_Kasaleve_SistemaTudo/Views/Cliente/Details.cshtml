@@ -1,101 +1,87 @@
 @model BancoDados_Kasaleve_SistemaTudo.Models.Cliente
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Cliente";
 }
 
-<h1>Details</h1>
+<h1>Detalhes do Cliente</h1>
 
 <div>
     <h4>Cliente</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sobrenome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sobrenome)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CpfCnpj)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CpfCnpj)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rg)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rg)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cep)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cep)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Endereco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Endereco)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Orcamentos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Orcamentos)
-        </dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Sobrenome)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Sobrenome)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CpfCnpj)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.CpfCnpj)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Rg)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Rg)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Telefone)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Telefone)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cep)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Cep)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Endereco)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Endereco)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cidade)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Cidade)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Estado)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Estado)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Status)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Status)</dd>
     </dl>
 </div>
+
+<hr />
+
+<h4>Histórico de Orçamentos</h4>
+@if (Model.Orcamentos != null && Model.Orcamentos.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Frete</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var orcamento in Model.Orcamentos.OrderByDescending(o => o.DataOrcamento))
+            {
+                <tr>
+                    <td>@orcamento.OrcamentoId</td>
+                    <td>@orcamento.DataOrcamento.ToShortDateString()</td>
+                    <td>@orcamento.Status</td>
+                    <td>@orcamento.ValorFrete.ToString("C")</td>
+                    <td>
+                        <a asp-controller="Orcamentoes" asp-action="Details" asp-route-orcamentoid="@orcamento.OrcamentoId" class="btn btn-info btn-sm">Ver Detalhes</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum orçamento encontrado para este cliente.</p>
+}
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ClienteId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-clienteid="@Model?.ClienteId" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
 </div>

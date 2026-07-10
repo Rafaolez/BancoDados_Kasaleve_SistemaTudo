@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BancoDados_Kasaleve_SistemaTudo.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20260701134827_Criacao-Inicial")]
-    partial class CriacaoInicial
+    [Migration("20260710105207_Criacao-AddDetalhes")]
+    partial class CriacaoAddDetalhes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -276,7 +276,7 @@ namespace BancoDados_Kasaleve_SistemaTudo.Migrations
                         .HasColumnName("descricao");
 
                     b.Property<byte[]>("Foto")
-                        .HasColumnType("LONGBLOB")
+                        .HasColumnType("varbinary(max)")
                         .HasColumnName("foto");
 
                     b.Property<string>("Nome")
