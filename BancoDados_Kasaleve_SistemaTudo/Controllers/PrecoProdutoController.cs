@@ -15,7 +15,10 @@ public class PrecoProdutoController : Controller
     // GET: PRECOPRODUTOS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.PrecoProduto.ToListAsync());
+        var precos = await _context.PrecoProduto
+            .Include(p => p.Produto)
+            .ToListAsync();
+        return View(precos);
     }
 
     // GET: PRECOPRODUTOS/Details/5
@@ -27,6 +30,7 @@ public class PrecoProdutoController : Controller
         }
 
         var precoproduto = await _context.PrecoProduto
+            .Include(p => p.Produto)
             .FirstOrDefaultAsync(m => m.PrecoProdutoId == precoprodutoid);
         if (precoproduto == null)
         {

@@ -15,7 +15,11 @@ public class UsuarioController : Controller
     // GET: USUARIOS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Usuario.ToListAsync());
+        var usuarios = await _context.Usuario
+            .Include(u => u.Cargo)
+            .Include(u => u.Vendedora)
+            .ToListAsync();
+        return View(usuarios);
     }
 
     // GET: USUARIOS/Details/5
@@ -27,6 +31,8 @@ public class UsuarioController : Controller
         }
 
         var usuario = await _context.Usuario
+            .Include(u => u.Cargo)
+            .Include(u => u.Vendedora)
             .FirstOrDefaultAsync(m => m.UsuarioId == usuarioid);
         if (usuario == null)
         {

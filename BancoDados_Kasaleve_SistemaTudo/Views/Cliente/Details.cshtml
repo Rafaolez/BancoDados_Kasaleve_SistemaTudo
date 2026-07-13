@@ -1,87 +1,91 @@
-@model BancoDados_Kasaleve_SistemaTudo.Models.Cliente
+@model BancoDados_Kasaleve_SistemaTudo.Models.Orcamento
 
 @{
-    ViewData["Title"] = "Detalhes do Cliente";
+    ViewData["Title"] = "Detalhes do Orçamento";
 }
 
-<h1>Detalhes do Cliente</h1>
+<h1>Detalhes do Orçamento</h1>
 
 <div>
-    <h4>Cliente</h4>
+    <h4>Orçamento #@Model.OrcamentoId</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Nome)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Nome)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.DataOrcamento)</dt>
+        <dd class="col-sm-10">@Model.DataOrcamento.ToString("dd/MM/yyyy HH:mm")</dd>
 
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Sobrenome)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Sobrenome)</dd>
+        <dt class="col-sm-2">Cliente</dt>
+        <dd class="col-sm-10">@(Model.Cliente?.Nome ?? "Não informado")</dd>
 
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CpfCnpj)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.CpfCnpj)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Rg)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Rg)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Email)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Telefone)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Telefone)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cep)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Cep)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Endereco)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Endereco)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cidade)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Cidade)</dd>
-
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Estado)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.Estado)</dd>
+        <dt class="col-sm-2">Vendedora</dt>
+        <dd class="col-sm-10">@(Model.Vendedora?.Nome ?? "Não informada")</dd>
 
         <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Status)</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.Status)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CorAluminio)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.CorAluminio)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CorCorda)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.CorCorda)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CorTecido)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.CorTecido)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.ValorFrete)</dt>
+        <dd class="col-sm-10">@Model.ValorFrete.ToString("C")</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Observacoes)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Observacoes)</dd>
     </dl>
 </div>
 
 <hr />
 
-<h4>Histórico de Orçamentos</h4>
-@if (Model.Orcamentos != null && Model.Orcamentos.Any())
+<h4>Itens do Orçamento</h4>
+@if (Model.OrcamentoItens != null && Model.OrcamentoItens.Any())
 {
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Data</th>
-                <th>Status</th>
-                <th>Frete</th>
-                <th>Ações</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var orcamento in Model.Orcamentos.OrderByDescending(o => o.DataOrcamento))
+            @foreach (var item in Model.OrcamentoItens)
             {
                 <tr>
-                    <td>@orcamento.OrcamentoId</td>
-                    <td>@orcamento.DataOrcamento.ToShortDateString()</td>
-                    <td>@orcamento.Status</td>
-                    <td>@orcamento.ValorFrete.ToString("C")</td>
-                    <td>
-                        <a asp-controller="Orcamentoes" asp-action="Details" asp-route-orcamentoid="@orcamento.OrcamentoId" class="btn btn-info btn-sm">Ver Detalhes</a>
-                    </td>
+                    <td>@(item.Produto?.Nome ?? item.DescricaoItem ?? "Produto não identificado")</td>
+                    <td>@item.Quantidade</td>
+                    <td>@item.ValorUnitario.ToString("C")</td>
+                    <td>@((item.Quantidade * item.ValorUnitario).ToString("C"))</td>
                 </tr>
             }
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" class="text-right">Total dos Itens:</th>
+                <th>@Model.OrcamentoItens.Sum(i => i.Quantidade * i.ValorUnitario).ToString("C")</th>
+            </tr>
+            <tr>
+                <th colspan="3" class="text-right">Frete:</th>
+                <th>@Model.ValorFrete.ToString("C")</th>
+            </tr>
+            <tr>
+                <th colspan="3" class="text-right">Total Geral:</th>
+                <th>@((Model.OrcamentoItens.Sum(i => i.Quantidade * i.ValorUnitario) + Model.ValorFrete).ToString("C"))</th>
+            </tr>
+        </tfoot>
     </table>
 }
 else
 {
-    <p>Nenhum orçamento encontrado para este cliente.</p>
+    <p>Nenhum item cadastrado para este orçamento.</p>
 }
 
 <div>
-    <a asp-action="Edit" asp-route-clienteid="@Model?.ClienteId" class="btn btn-primary">Editar</a> |
+    <a asp-action="Edit" asp-route-orcamentoid="@Model?.OrcamentoId" class="btn btn-primary">Editar</a> |
     <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
 </div>

@@ -1,99 +1,35 @@
-@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Cliente>
+@model IEnumerable<BancoDados_Kasaleve_SistemaTudo.Models.Produto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Produtos";
 }
 
-<h1>Index</h1>
+<h1>Lista de Produtos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Novo Produto</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sobrenome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CpfCnpj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Orcamentos)
-            </th>
-            <th></th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Data Cadastro</th>
+            <th>Ativo</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@item.Valor.ToString("C")</td>
+            <td>@item.DataCadastro.ToShortDateString()</td>
+            <td>@(item.Ativo ? "Sim" : "Não")</td>
             <td>
-                @Html.DisplayFor(model => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Sobrenome)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CpfCnpj)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Rg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Orcamentos)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-clienteid="@item.ClienteId">Editar</a> |
-                <a asp-action="Details" asp-route-clienteid="@item.ClienteId">Histórico/Detalhes</a> |
-                <a asp-action="Delete" asp-route-clienteid="@item.ClienteId">Excluir</a>
+                <a asp-action="Edit" asp-route-produtoid="@item.ProdutoId" class="btn btn-warning btn-sm">Editar</a> |
+                <a asp-action="Details" asp-route-produtoid="@item.ProdutoId" class="btn btn-info btn-sm">Detalhes</a> |
+                <a asp-action="Delete" asp-route-produtoid="@item.ProdutoId" class="btn btn-danger btn-sm">Excluir</a>
             </td>
         </tr>
 }

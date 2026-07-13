@@ -15,7 +15,11 @@ public class OrcamentoesController : Controller
     // GET: ORCAMENTOS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Orcamento.ToListAsync());
+        var orcamentos = await _context.Orcamento
+            .Include(o => o.Cliente)
+            .Include(o => o.Vendedora)
+            .ToListAsync();
+        return View(orcamentos);
     }
 
     // GET: ORCAMENTOS/Details/5
@@ -27,6 +31,10 @@ public class OrcamentoesController : Controller
         }
 
         var orcamento = await _context.Orcamento
+            .Include(o => o.Cliente)
+            .Include(o => o.Vendedora)
+            .Include(o => o.OrcamentoItens)
+                .ThenInclude(oi => oi.Produto)
             .FirstOrDefaultAsync(m => m.OrcamentoId == orcamentoid);
         if (orcamento == null)
         {

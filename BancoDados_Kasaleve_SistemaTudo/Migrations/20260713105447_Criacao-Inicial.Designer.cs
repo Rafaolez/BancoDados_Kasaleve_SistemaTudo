@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BancoDados_Kasaleve_SistemaTudo.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20260710105207_Criacao-AddDetalhes")]
-    partial class CriacaoAddDetalhes
+    [Migration("20260713105447_Criacao-Inicial")]
+    partial class CriacaoInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
